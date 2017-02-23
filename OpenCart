@@ -1,70 +1,68 @@
 OpenCart
 //html
 
-<div class="wrapper">
+    <div class="wrapper">
 
-    <div class="container">
+        <div class="container">
 
-        <a href="#mobile-menu" class="toggle-mnu"><span></span></a>
+            <a href="#mobile-menu" class="toggle-mnu"><span></span></a>
 
-        <div class="header-wrap clearfix">
-            <!--
-                  <div class="logo-wrap">
-                    <a href="#"><img src="img/menu-logo.png" alt="Alt"></a>
-                  </div>
-            -->
-            <div class="top-mnu">
+            <div class="header-wrap clearfix">
+                <!--
+                      <div class="logo-wrap">
+                        <a href="#"><img src="img/menu-logo.png" alt="Alt"></a>
+                      </div>
+                -->
+                <div class="top-mnu">
 
-                <ul class="sf-menu">
-                    <li><a href="<?php echo $home; ?>"><?php echo $text_home; ?></a></li>
-                    <?php foreach ($categories as $category) { ?>
-                    <?php if ($category['children']) { ?>
-                    <li>
-                        <a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a>
-                        <div class="sf-mega">
+                    <ul class="sf-menu">
+                        <li><a href="<?php echo $home; ?>"><?php echo $text_home; ?></a></li>
+                        <?php foreach ($categories as $category) { ?>
+                        <?php if ($category['children']) { ?>
+                        <li>
+                            <a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a>
+                            <div class="sf-mega">
 
-                            <div class="container-fluid">
+                                <div class="container-fluid">
 
-                                <div class="row">
-                                    <?php foreach (array_chunk($category['children'], ceil(count($category['children']) / $category['column'])) as $childrens) { ?>
-                                    <?php foreach ($childrens as $child) { ?>
-                                    <div class="col-md-2">
-                                        <div class="menu-new-item">
-                                            <img src="<?php echo $child['thumb']; ?>" alt="Alt">
-                                            <h3>
-                                                <a href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a>
-                                            </h3>
-                                        </div>
-                                        <?php if ($child['subchildren']) { ?>
-                                        <ul class="mega-sub">
-                                            <?php foreach ($child['subchildren'] as $children) { ?>
-                                            <li>
-                                                <a href="<?php echo $children['href']; ?>"><?php echo $children['name']; ?></a>
-                                            </li>
+                                    <div class="row">
+                                        <?php foreach (array_chunk($category['children'], ceil(count($category['children']) / $category['column'])) as $childrens) { ?>
+                                        <?php foreach ($childrens as $child) { ?>
+                                        <div class="col-md-2">
+                                            <div class="menu-new-item">
+                                                <img src="<?php echo $child['thumb']; ?>" alt="Alt">
+                                                <h3>
+                                                    <a href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a>
+                                                </h3>
+                                            </div>
+                                            <?php if ($child['subchildren']) { ?>
+                                            <ul class="mega-sub">
+                                                <?php foreach ($child['subchildren'] as $children) { ?>
+                                                <li>
+                                                    <a href="<?php echo $children['href']; ?>"><?php echo $children['name']; ?></a>
+                                                </li>
+                                                <?php } ?>
+                                                <a href="<?php echo $child['href']; ?>"
+                                                   class="see-all"><?php echo $text_all; ?> <?php echo $child['name']; ?></a>
+                                            </ul>
                                             <?php } ?>
-                                            <a href="<?php echo $child['href']; ?>"
-                                               class="see-all"><?php echo $text_all; ?> <?php echo $child['name']; ?></a>
-                                        </ul>
+                                        </div>
+                                        <?php } ?>
                                         <?php } ?>
                                     </div>
-                                    <?php } ?>
-                                    <?php } ?>
+
                                 </div>
-
                             </div>
-                    </li>
-                    <?php } else { ?>
-                    <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
-                    <?php } ?>
-                    <?php } ?>
-                </ul>
-
+                        </li>
+                        <?php } else { ?>
+                        <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
+                        <?php } ?>
+                        <?php } ?>
+                    </ul>
+                </div>
             </div>
-
         </div>
-
     </div>
-</div>
 
 //PHP
 //header.php
